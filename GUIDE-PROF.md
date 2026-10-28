@@ -6,7 +6,9 @@ Durée : 4 séances de 50 minutes environ.
 ## Séance 1 — Je découvre (lecture)
 
 - **Au TVI, toute la classe** : ouvrir « 1. Je découvre ». Lire les parties 1 à 3 ensemble.
-- **Sur iPad, seul ou à 2** : lire les parties 4 à 9. Le haut-parleur lit chaque partie.
+- **Sur iPad, seul ou à 2** : lire les parties 4 à 10. Le haut-parleur lit chaque partie.
+- **Partie 6 : la vidéo** (1 min 11). Elle demande Internet. À regarder ensemble au TVI si le réseau est lent.
+- Les lecteurs fragiles peuvent choisir « Texte facile ».
 - **Fin de séance** : chacun dit 1 chose qu'il a apprise.
 
 ## Séance 2 — Je comprends (jeu de lecture)
@@ -49,6 +51,7 @@ Durée : 4 séances de 50 minutes environ.
 ## Sources
 
 Wikipédia, articles « Foire de Liège » (français et anglais), consultés le 27/10/2026.
+Vidéo « À quoi ressemblait la Foire de Liège autrefois ? », Qu4tre – Liège Média (octobre 2026).
 Les chiffres (attractions, visiteurs) changent un peu chaque année.
 
 [CC BY-NC-SA 4.0](LICENSE) · © 2026 Ludo (@rprof_1) · https://rprof1.com
