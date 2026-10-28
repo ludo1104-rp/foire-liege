@@ -1,6 +1,6 @@
 # La Foire de Liège — séquence de cours
 
-Pour qui : élèves lecteurs fragiles (secondaire spécialisé). Sur iPad ou au TVI.
+Pour qui : élèves du secondaire spécialisé (texte facile en option pour les lecteurs fragiles). Sur iPad ou au TVI.
 Durée : 4 séances de 50 minutes environ.
 
 ## Séance 1 — Je découvre (lecture)
@@ -13,7 +13,7 @@ Durée : 4 séances de 50 minutes environ.
 
 ## Séance 2 — Je comprends (jeu de lecture)
 
-- Chaque élève choisit son défi sur l'accueil :
+- Chaque élève touche « Je comprends », puis choisit son défi :
   - **Petit défi** : 6 questions, la réponse est écrite dans le texte.
   - **Moyen défi** : 8 questions, il faut relier 2 phrases.
   - **Grand défi** : 10 questions, il faut réfléchir.
