@@ -15,6 +15,7 @@ pas encore publiée (adresse prévue : https://ludo1104-rp.github.io/foire-liege
   (Qu4tre – Liège Média, Short h2vPRoAUzhQ), en grand dans la carte de texte
   (pas dans la scène), + bouton blanc « Regarder sur YouTube » (logo rouge). Le texte donne
   les informations (pas de questions dans la lecture).
+- Accueil : réglages dans une fenêtre, tuiles sur 1 ou 2 lignes (`rangerTuiles()`).
 - **Je comprends** : écran « Je choisis mon défi », puis 36 questions (q1…q36,
   q31-36 sur la vidéo, c:1 = seulement en texte complet). « Mes questions difficiles ».
 - **Je présente** : fiche guidée en 7 étapes, « Montrer en grand » pour le TVI.
