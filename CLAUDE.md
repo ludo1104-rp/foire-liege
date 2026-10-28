@@ -9,9 +9,11 @@ pas encore publiée (adresse prévue : https://ludo1104-rp.github.io/foire-liege
   compteur 1594 → 2026, déménagement, attractions, nourriture, visiteurs,
   trésor). Les phrases apparaissent l'une après l'autre.
   Texte complet par défaut (`t`), « Texte facile » FALC en option (`l`).
+  Mot de vocabulaire (`p.d`) = petite pastille discrète, la définition
+  s'ouvre au toucher (`<details class="sc-def">`).
 - Partie 6 = vidéo YouTube « À quoi ressemblait la Foire de Liège autrefois ? »
   (Qu4tre – Liège Média, Short h2vPRoAUzhQ), en grand dans la carte de texte
-  (pas dans la scène), + bouton « Ouvrir la vidéo sur YouTube ». Le texte donne
+  (pas dans la scène), + bouton blanc « Regarder sur YouTube » (logo rouge). Le texte donne
   les informations (pas de questions dans la lecture).
 - **Je comprends** : écran « Je choisis mon défi », puis 36 questions (q1…q36,
   q31-36 sur la vidéo, c:1 = seulement en texte complet). « Mes questions difficiles ».

@@ -245,43 +245,37 @@ body.simple .streak{background:var(--surface);color:var(--ink)}
 /* ---------- La Foire de Liège ---------- */
 .cle{font-weight:bold}
 .wrap.large{max-width:1000px}
-/* Scrollytelling : la scène reste en place, le texte se colle dessous pendant que la scène s'anime */
-.sc-mode{margin-bottom:2px}
-.scrolly{display:flex;flex-direction:column}
-.sc-visu{position:sticky;top:0;z-index:2;background:var(--bg);padding:4px 0 12px}
-.scene{position:relative;width:100%;height:var(--sceneh,300px);border-radius:28px;background:var(--c,var(--p-yellow));overflow:hidden;transition:background-color .4s}
-.sc-svg{position:absolute;inset:0;width:100%;height:100%;opacity:0;visibility:hidden;transition:opacity .35s,visibility 0s .35s;pointer-events:none}
-.sc-svg.on{opacity:1;visibility:visible;transition:opacity .35s;pointer-events:auto}
-/* tests automatiques : pas de fondu, pour mesurer le contraste final */
-body.sans-fondu .sc-svg,body.sans-fondu .sc-lignes p{transition:none}
-.sc-step.sc-avideo{min-height:0;padding-bottom:40px}
-.sc-step.sc-avideo .sc-card{position:relative;top:auto}
+/* Récit : une partie par écran. La scène s'anime une fois quand la partie arrive. */
+.recit{display:flex;flex-direction:column;gap:22px}
+.rc-media{display:flex;justify-content:center}
+.scene{position:relative;width:100%;height:var(--sceneh,300px);border-radius:28px;background:var(--c,var(--p-yellow));overflow:hidden}
+.sc-svg{position:absolute;inset:0;width:100%;height:100%}
+.rc-texte{display:flex;flex-direction:column;gap:14px;min-width:0}
+.rc-num{font-size:16px;color:var(--muted)}
+.sc-titre{font-size:28px;line-height:1.2;margin:0}
+.sc-lignes{display:flex;flex-direction:column;gap:10px;font-size:21px;line-height:1.5}
+.sc-lignes p{margin:0}
+.sc-lignes.facile{font-size:22px;gap:8px}
+.sc-def{align-self:flex-start;max-width:100%;font-size:17px;color:var(--muted)}.sc-def summary{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px;border-radius:999px;border:1px solid var(--line-strong);cursor:pointer;list-style:none;font-weight:bold;color:var(--ink)}.sc-def summary::-webkit-details-marker{display:none}.sc-def summary svg{width:20px;height:20px;flex:none;opacity:.7}.sc-def[open] summary{background:var(--surface)}.sc-def p{margin:8px 4px 0;color:var(--ink)}
+.rc-nav{display:flex;justify-content:space-between;gap:12px;margin-top:6px}
+.rc-nav .btn{min-width:150px}
+.rc-nav .btn:only-child{margin-left:auto}
 .vbloc{display:flex;flex-direction:column;align-items:center;gap:10px}
 .vbloc .btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:var(--ink);white-space:nowrap}
-.vbloc .btn svg{width:22px;height:22px;flex:none}
+.vbloc .btn svg{width:22px;height:22px;flex:none}.vbloc .btn.yt{background:var(--card);border:2px solid var(--line-strong);font-weight:bold;gap:12px;padding:0 26px}.vbloc .btn.yt svg{width:34px;height:24px}
 .vcadre{height:var(--vh,560px);max-width:100%;aspect-ratio:9/16;border-radius:20px;overflow:hidden;background:#1F2933}
 .vcadre iframe{width:100%;height:100%;border:0;display:block}
 .vsource{font-size:15px;color:#3F4A55}
-.sc-steps{display:flex;flex-direction:column;padding-bottom:var(--scfin,200px)}
-.sc-step{min-height:var(--scstep,900px);position:relative}
-.sc-step.sc-fin{min-height:0}
-.sc-card{position:sticky;top:var(--sctop,0px);width:100%;gap:14px;transition:border-color .3s}
-.sc-step.on .sc-card{border-color:var(--primary)}
-.sc-titre{font-size:28px;line-height:1.2}
-.sc-lignes{display:flex;flex-direction:column;gap:10px;font-size:21px;line-height:1.5}
-.sc-lignes.facile{font-size:22px;gap:8px}
-.sc-lignes p{transition:opacity .45s,transform .45s,visibility 0s}
-.sc-lignes p:not(.vu){opacity:0;visibility:hidden;transform:translateY(14px)}
-.sc-def{font-size:18px}
-.sc-next{align-self:flex-start;display:inline-flex;align-items:center;gap:8px}
-.sc-next svg{width:22px;height:22px}
-body:not(.portrait) .scrolly{flex-direction:row;gap:28px;align-items:flex-start}
-body:not(.portrait) .sc-visu{flex:0 0 46%;top:12px;padding:0}
-body:not(.portrait) .sc-steps{flex:1;min-width:0}
+body:not(.portrait) .recit{display:grid;grid-template-columns:46% 1fr;gap:32px;align-items:start}
 body.simple .scene{background:var(--surface)!important}
-body.simple .sc-step.on .sc-card{border-color:#0A0A0A}
-.defis-tuiles .tile{min-height:170px}
-@media (prefers-reduced-motion:reduce){.sc-lignes p:not(.vu){opacity:1;visibility:visible;transform:none}.sc-svg,.scene{transition:none}}
+/* Accueil allégé : réglages dans une fenêtre */
+#reglBtn{position:absolute;right:76px;top:50%;transform:translateY(-50%)}
+#reglBtn svg{width:24px;height:24px}
+.mtitre{flex:1;margin:0;font-size:26px}
+.hero.petit svg{width:min(150px,40%)}
+.defis-tuiles .tile{min-height:150px}
+.etoiles{display:flex;gap:2px;min-height:66px;align-items:center}
+.etoiles svg{width:44px;height:44px}
 /* Projet « Je présente » */
 .saisie{width:100%;min-height:58px;padding:14px 18px;border-radius:20px;border:2px solid var(--line-strong);background:var(--card);color:var(--ink);font:20px Arial,Helvetica,sans-serif;resize:vertical}
 body.simple .saisie{font-family:inherit;border-width:1px}
@@ -320,6 +314,7 @@ body.simple .fiche-mot{background:var(--surface)}
     <span id="topLogo" class="marque">Ludo.</span>
     <button id="homeBtn" class="round" type="button" aria-label="Accueil"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11.2 12 4l8 7.2V20a1 1 0 0 1-1 1h-4.6v-6H9.6v6H5a1 1 0 0 1-1-1z" fill="currentColor"/></svg></button>
     <div id="topCenter"></div>
+    <button id="reglBtn" class="round" type="button" aria-label="Réglages"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h9M17 7h3M4 17h3M11 17h9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><circle cx="15" cy="7" r="2.4" fill="none" stroke="currentColor" stroke-width="2.2"/><circle cx="9" cy="17" r="2.4" fill="none" stroke="currentColor" stroke-width="2.2"/></svg></button>
     <button id="listenBtn" class="round" type="button" aria-label="Écouter"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path d="M16 9c1.5 1.6 1.5 4.4 0 6M18.6 6.4c3 3.2 3 8 0 11.2" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></button>
   </header>
   <main id="main"></main>
@@ -327,6 +322,12 @@ body.simple .fiche-mot{background:var(--surface)}
     <div class="sheet-in">
       <div class="sheet-msg"><span class="sheet-ico" aria-hidden="true"></span><div><p class="sheet-title"></p><p class="sheet-sub"></p></div></div>
       <button type="button" class="sheet-btn" id="sheetBtn">Continuer</button>
+    </div>
+  </div>
+  <div class="modal" id="reglModal" role="dialog" aria-modal="true" aria-label="Réglages">
+    <div class="mbox">
+      <div class="mtop"><h2 class="mtitre">Réglages</h2><button class="round" type="button" id="reglClose" aria-label="Fermer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></button></div>
+      <div id="reglBody" class="reglages"></div>
     </div>
   </div>
   <div class="modal" id="helpModal" role="dialog" aria-modal="true" aria-label="Comment jouer ?">
@@ -463,7 +464,7 @@ const ACCUEIL_LIGNES=[
 
 /* Aide « Comment jouer ? » : une étape par écran */
 const ETAPES=[
-  {titre:'1. Je découvre',lignes:[['lire','Fais glisser l’écran vers le haut pour lire.'],['ecouter','Touche le haut-parleur pour écouter.']]},
+  {titre:'1. Je découvre',lignes:[['lire','Touche « Suivant » pour lire la suite.'],['ecouter','Touche le haut-parleur pour écouter.']]},
   {titre:'2. Je comprends',lignes:[['doigt','Touche la bonne réponse.'],['ok','Vert : c’est juste.'],['ko','Rose : relis la partie indiquée.']]},
   {titre:'3. Je présente',lignes:[['micro','Choisis une attraction dans un parc.'],['lire','Réponds aux questions, étape par étape.'],['photo','Fais une capture d’écran de ta fiche.']]}
 ];
@@ -575,12 +576,10 @@ const SCENES={
       for(let k=0;k<=5;k++)s+='<rect x="'+(50+k*55)+'" y="144" width="3" height="28" rx="1.5" fill="#BA7517"/>';
       s+='<text x="50" y="200" font-size="15" fill="#1F2933" font-family="Arial">1er samedi d’octobre</text><text x="350" y="200" text-anchor="end" font-size="15" fill="#1F2933" font-family="Arial">11 novembre</text>';
       s+='<text id="sem" x="200" y="120" text-anchor="middle" font-size="22" fill="#1F2933" font-family="Arial"></text>';
-      for(let k=0;k<7;k++)s+='<path class="feuille" d="M0 0c8-12 20-11 22-9-2 2-4 14-22 9z" fill="'+['#EF9F27','#E8735A','#FAC775','#D85A30'][k%4]+'"/>';
       return s;},
     maj:(g,t)=>{g.querySelector('#barre').setAttribute('width',300*t);
       g.querySelector('#mois').textContent=t<.72?'octobre':'novembre';
-      const sem=Math.max(1,Math.ceil(t*5.5));g.querySelector('#sem').textContent=t>.95?'5 à 6 semaines':'Semaine '+sem;
-      g.querySelectorAll('.feuille').forEach((f,k)=>{const y=lerp(-30,300,(t*1.4+k*.13)%1),x=30+k*55+Math.sin(t*6+k)*14;f.setAttribute('transform','translate('+x+' '+y+') rotate('+(t*360+k*50)+')');});}
+      const sem=Math.max(1,Math.ceil(t*5.5));g.querySelector('#sem').textContent=t>.95?'5 à 6 semaines':'Semaine '+sem;}
   },
   carte:{
     html:()=>{let s=MEUSE+'<path id="bd" d="'+BOULEVARD+'" stroke="#8792A0" stroke-width="12" fill="none" stroke-linecap="round"/>';
@@ -734,6 +733,7 @@ const main=$('#main'),sheet=$('#sheet');
 function header(o){o=o||{};
   $('#homeBtn').style.visibility=o.home===false?'hidden':'visible';
   $('#topLogo').style.visibility=o.home===false?'visible':'hidden';
+  $('#reglBtn').style.display=o.home===false?'':'none';
   S.listen=o.listen||null;$('#listenBtn').style.visibility=S.listen?'visible':'hidden';
   let c='';if(o.segs){c='<div class="segs">'+Array.from({length:o.segs[1]},(_,i)=>'<i class="'+(i<o.segs[0]?'on':'')+'"></i>').join('')+'</div>';
     if(o.streak>=2)c+='<span class="streak">'+ICONS.flamme+o.streak+'</span>';}
@@ -749,7 +749,7 @@ function hideSheet(){sheet.classList.remove('show');document.body.classList.remo
 $('#sheetBtn').addEventListener('click',()=>{hideSheet();const a=S.sheetAction;S.sheetAction=null;if(a)a();});
 $('#homeBtn').addEventListener('click',()=>{if(synth)synth.cancel();renderHome();});
 $('#listenBtn').addEventListener('click',()=>{if(S.listen)S.listen();});
-S.scrolly=null;
+S.recit=null;cancelAnimationFrame(S.anim);
 /* Crochet pour les tests automatiques (invisible pour l'élève) */
 window.__appli=window.__appli||{};
 
@@ -826,19 +826,13 @@ function sansGras(t){return String(t).replace(/\*\*/g,'');}
 function texteActivite(nom){return {decouvrir:'Je découvre',quiz:'Je comprends',projet:'Je présente'}[nom];}
 
 function renderHome(){
-  S.scrolly=null;
+  S.recit=null;cancelAnimationFrame(S.anim);
   header({home:false,listen:()=>say(APP.titre+'. '+ACCUEIL_LIGNES.map(l=>l[1]).join(' '))});
   const lu=Number(store('lu'))||0,diff=difficiles().filter(k=>QUESTIONS.some(q=>'q:'+q.id===k)).length;
   const fiche=store('fiche');
-  view('<div class="reglages">'+
-      '<div class="sizes"><span class="small-label">Style</span><div class="size-pills">'+[['couleurs','Couleurs'],['simple','Simple']].map(c=>'<button type="button" class="size-pill" data-sty="'+c[0]+'" aria-pressed="'+(styleActuel()===c[0])+'">'+c[1]+'</button>').join('')+'</div></div>'+
-      '<div class="sizes"><span class="small-label">Taille du texte</span><div class="size-pills">'+
-      [['0.9','Petit'],['1','Moyen'],['1.15','Grand']].map(z=>'<button type="button" class="size-pill" data-z="'+z[0]+'" aria-pressed="'+(zoomLevel()===z[0])+'"><span style="font-size:'+(16*Number(z[0]))+'px">A</span> '+z[1]+'</button>').join('')+
-    '</div></div></div>'+
-    '<div class="hero">'+ICONS.roue+'</div>'+
+  view(    '<div class="hero petit">'+ICONS.roue+'</div>'+
     '<h1>'+esc(APP.titre)+'</h1>'+
     '<p class="lead">'+esc(APP.sousTitre)+'</p>'+
-    '<div class="slines">'+ACCUEIL_LIGNES.map(l=>line(l[0],l[1])).join('')+'</div>'+
     '<div class="tiles">'+
       '<button type="button" class="tile" data-go="decouvrir" style="--c:var(--p-yellow)"><span class="ico">'+ICONS.lire+'</span><span class="name">1. Je découvre</span><span class="desc">'+(lu>=PARTIES.length?'Tout lu '+COCHE:'L’histoire en '+PARTIES.length+' parties animées.')+'</span></button>'+
       '<button type="button" class="tile" data-go="quiz" style="--c:var(--p-lav)"><span class="ico">'+ICONS.doigt+'</span><span class="name">2. Je comprends</span><span class="desc">Réponds aux questions.</span></button>'+
@@ -850,99 +844,75 @@ function renderHome(){
   $$('[data-go]',main).forEach(b=>b.addEventListener('click',()=>{const g=b.dataset.go;
     if(g==='decouvrir')renderDecouvrir();else if(g==='quiz')renderDefi();else if(g==='difficiles')startQuiz(true);else renderProjet(store('fiche')&&store('fiche').fini?7:0);}));
   $('#helpBtn').addEventListener('click',openHelp);
-  $$('[data-z]',main).forEach(b=>b.addEventListener('click',()=>{setZoom(b.dataset.z);$$('[data-z]',main).forEach(x=>x.setAttribute('aria-pressed',String(x===b)));layout();}));
-  $$('[data-sty]',main).forEach(b=>b.addEventListener('click',()=>{setStyle(b.dataset.sty);$$('[data-sty]',main).forEach(x=>x.setAttribute('aria-pressed',String(x===b)));}));
-  marquerNouveau();
 }
+/* Réglages : style, taille du texte, texte facile. Rangés dans une fenêtre pour garder l'accueil léger. */
+function pilules(cle,label,choix,actuel){return '<div class="sizes"><span class="small-label">'+label+'</span><div class="size-pills">'+
+  choix.map(c=>'<button type="button" class="size-pill" data-'+cle+'="'+c[0]+'" aria-pressed="'+(actuel===c[0])+'">'+c[1]+'</button>').join('')+'</div></div>';}
+function openRegl(){
+  const body=$('#reglBody');
+  body.innerHTML=pilules('sty','Style',[['couleurs','Couleurs'],['simple','Simple']],styleActuel())+
+    pilules('z','Taille du texte',[['0.9','<span style="font-size:14px">A</span> Petit'],['1','<span style="font-size:16px">A</span> Moyen'],['1.15','<span style="font-size:18px">A</span> Grand']],zoomLevel())+
+    pilules('texte','Texte de l’histoire',[['complet','Texte complet'],['facile','Texte facile']],texteFacile()?'facile':'complet');
+  const choisir=(cle,fn)=>$$('[data-'+cle+']',body).forEach(b=>b.addEventListener('click',()=>{fn(b.dataset[cle]);$$('[data-'+cle+']',body).forEach(x=>x.setAttribute('aria-pressed',String(x===b)));}));
+  choisir('sty',setStyle);choisir('z',z=>{setZoom(z);layout();});choisir('texte',t=>store('texte',t));
+  marquerNouveau();
+  $('#reglModal').classList.add('on');}
+$('#reglBtn').addEventListener('click',openRegl);
+$('#reglClose').addEventListener('click',()=>$('#reglModal').classList.remove('on'));
+$('#reglModal').addEventListener('click',e=>{if(e.target.id==='reglModal')e.target.classList.remove('on');});
 
-/* ---------- 1. Je découvre : récit animé au défilement (scrollytelling) ----------
-   La scène reste en place (en haut en portrait, à gauche en paysage). Chaque partie
-   a sa scène, qui avance avec le doigt (t de 0 à 1) ; le texte de la partie reste
-   affiché pendant ce temps et ses phrases apparaissent l'une après l'autre.
-   Texte complet par défaut, « Texte facile » (FALC) en option. */
+/* ---------- 1. Je découvre : une partie par écran ----------
+   Image à gauche (en haut en portrait), texte à droite. La scène s'anime une fois
+   quand la partie arrive (t de 0 à 1). « Suivant » ou glisser le doigt pour changer.
+   Texte complet par défaut, « Texte facile » (FALC) dans les réglages. */
 if(navigator.webdriver)document.body.classList.add('sans-fondu');
 function texteFacile(){return store('texte')==='facile';}
 function lignes(p){return texteFacile()?p.l:p.t;}
 const MOINS_ANIM=matchMedia('(prefers-reduced-motion: reduce)');
+function animerScene(el,sc){
+  cancelAnimationFrame(S.anim);
+  if(MOINS_ANIM.matches||navigator.webdriver){sc.maj(el,1);return;}
+  const t0=performance.now(),duree=2400;
+  const pas=now=>{const t=Math.min(1,(now-t0)/duree);sc.maj(el,t);if(t<1)S.anim=requestAnimationFrame(pas);};
+  sc.maj(el,0);S.anim=requestAnimationFrame(pas);}
 function renderDecouvrir(depart){
-  S.scrolly={i:-1,t:-1};
-  view('<div class="sizes sc-mode"><span class="small-label">Texte</span><div class="size-pills">'+[['complet','Texte complet'],['facile','Texte facile']].map(m=>'<button type="button" class="size-pill" data-texte="'+m[0]+'" aria-pressed="'+((texteFacile()?'facile':'complet')===m[0])+'">'+m[1]+'</button>').join('')+'</div></div>'+
-    '<div class="scrolly">'+
-      '<div class="sc-visu"><div class="scene" id="scene">'+PARTIES.map((p,k)=>p.video?
-        '<svg class="sc-svg" data-k="'+k+'" viewBox="0 0 400 300" aria-hidden="true"><rect x="110" y="40" width="180" height="200" rx="22" fill="#1F2933"/><circle cx="200" cy="140" r="42" fill="#fff"/><path d="M188 118 L222 140 L188 162 Z" fill="#1F2933"/><path d="M200 262 l-14 -14 h28 Z" fill="#1F2933"/></svg>':
-        '<svg class="sc-svg" data-k="'+k+'" viewBox="0 0 400 300" aria-hidden="true">'+SCENES[p.sc].html()+'</svg>').join('')+
-        '<svg class="sc-svg" data-k="'+PARTIES.length+'" viewBox="0 0 400 300" aria-hidden="true"><g transform="translate(110 40) scale(2.8)">'+ICONS.trophee.replace(/^<svg[^>]*>|<\/svg>$/g,'')+'</g></svg></div></div>'+
-      '<div class="sc-steps">'+PARTIES.map((p,k)=>{const L=lignes(p);
-        return '<section class="sc-step'+(p.video?' sc-avideo':'')+'" data-k="'+k+'"><div class="def-card sc-card">'+
-          '<span class="badge">Partie '+(k+1)+' sur '+PARTIES.length+'</span>'+
-          '<h2 class="sc-titre">'+esc(p.titre)+'</h2>'+
-          (p.video?'<div class="vbloc">'+(location.protocol==='file:'?'':'<div class="vcadre"><iframe data-src="https://www.youtube-nocookie.com/embed/'+p.video+'?playsinline=1&rel=0&enablejsapi=1" title="'+esc(p.titre)+'" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>')+'<a class="btn'+(location.protocol==='file:'?' primary':'')+'" href="https://www.youtube.com/shorts/'+p.video+'" target="_blank" rel="noopener">Ouvrir la vidéo sur YouTube</a><p class="vsource">Vidéo : '+esc(p.source)+'. Il faut Internet.</p></div>':'')+
-          '<div class="sc-lignes'+(texteFacile()?' facile':'')+'">'+L.map((t,i)=>'<p data-i="'+i+'" data-n="'+L.length+'">'+gras(t)+'</p>').join('')+'</div>'+
-          (p.d?'<div class="tip sc-def">'+ICONS.lire+'<span><b class="cle">'+esc(p.d[0])+'</b> : '+esc(p.d[1])+'</span></div>':'')+
-          '<button type="button" class="btn sc-next" data-next="'+(k+1)+'">'+(k<PARTIES.length-1?ICONS.fleche+' Partie suivante':'J’ai tout lu')+'</button>'+
-        '</div></section>';}).join('')+
-        '<section class="sc-step sc-fin" data-k="'+PARTIES.length+'"><div class="def-card sc-card">'+
-          '<h2 class="sc-titre">Bravo, tu as tout lu !</h2><p>Maintenant, réponds aux questions.</p>'+
-          '<div class="actions inline"><button type="button" class="btn primary" id="toQuiz">Je réponds aux questions</button><button type="button" class="btn" id="toTop">Je relis depuis le début</button></div>'+
-        '</div></section>'+
-      '</div></div>');
-  $$('.sc-next',main).forEach(b=>b.addEventListener('click',()=>allerA(Number(b.dataset.next))));
-  $('#toQuiz').addEventListener('click',renderDefi);
-  $('#toTop').addEventListener('click',()=>allerA(0));
-  $$('[data-texte]',main).forEach(b=>b.addEventListener('click',()=>{const k=Math.max(0,S.scrolly.i);store('texte',b.dataset.texte);renderDecouvrir(k);}));
-  layout();
-  if(depart)allerA(depart,true);
-  scrollyMaj();
-}
-/* Où le texte se colle : sous la scène en portrait, en haut en paysage */
-function repere(){const r=main.getBoundingClientRect(),visu=$('.sc-visu',main);
-  return document.body.classList.contains('portrait')&&visu?visu.getBoundingClientRect().bottom:r.top;}
-function allerA(k,direct){const el=$('.sc-step[data-k="'+k+'"]',main);if(!el)return;
-  const visu=$('.sc-visu',main),portrait=document.body.classList.contains('portrait');
-  const decal=portrait&&visu?visu.getBoundingClientRect().height:0;
-  const top=main.scrollTop+el.getBoundingClientRect().top-main.getBoundingClientRect().top-decal-8;
-  main.scrollTo({top:Math.max(0,top),behavior:direct||MOINS_ANIM.matches?'auto':'smooth'});}
-function scrollyMaj(){
-  if(!S.scrolly)return;const steps=$$('.sc-step',main);if(!steps.length)return;
-  const ref=repere(),bas=main.getBoundingClientRect().bottom;let k=0;
-  steps.forEach((s,j)=>{if(s.getBoundingClientRect().top<=ref+(bas-ref)*.35)k=j;});
-  if(main.scrollTop+main.clientHeight>=main.scrollHeight-4)k=steps.length-1;
-  /* avancement de la partie : de son arrivée sous le repère jusqu'à sa sortie */
-  const st=steps[k],rs=st.getBoundingClientRect(),carte=$('.sc-card',st).getBoundingClientRect();
-  const course=Math.max(1,rs.height-carte.height-24);
-  let t=clamp((ref+(bas-ref)*.35-rs.top)/course,0,1);
-  if(MOINS_ANIM.matches||k>=PARTIES.length)t=1;
-  const change=k!==S.scrolly.i;
-  if(!change&&Math.abs(t-S.scrolly.t)<.002)return;
-  S.scrolly.i=k;S.scrolly.t=t;
-  if(change){
-    /* vidéo : chargée quand on arrive sur sa partie, mise en pause quand on la quitte */
-    $$('.vcadre iframe',main).forEach(f=>{const ici=f.closest('.sc-step').dataset.k==String(k);
-      if(ici&&!f.src)f.src=f.dataset.src;
-      else if(!ici&&f.src)try{f.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}','*');}catch(e){}});
-    steps.forEach((s,j)=>s.classList.toggle('on',j===k));
-    $$('.sc-svg',main).forEach(s=>s.classList.toggle('on',Number(s.dataset.k)===k));
-    const fin=k>=PARTIES.length,p=PARTIES[Math.min(k,PARTIES.length-1)];
-    $('#scene').style.setProperty('--c','var('+(fin?'--p-mint':p.c)+')');
-    const lu=Number(store('lu'))||0;if(k+1>lu)store('lu',Math.min(k+1,PARTIES.length));
-    header({segs:[Math.min(k+1,PARTIES.length),PARTIES.length],listen:()=>say(fin?'Bravo, tu as tout lu ! Maintenant, réponds aux questions.':p.titre+'. '+lignes(p).map(sansGras).join(' ')+(p.d?' '+p.d[0]+' : '+p.d[1]+'.':''))});
+  const n=PARTIES.length,k=clamp(depart||0,0,n),fin=k>=n,p=PARTIES[Math.min(k,n-1)];
+  S.recit={k};
+  if(k+1>(Number(store('lu'))||0))store('lu',Math.min(k+1,n));
+  let media,texte;
+  if(fin){
+    media='<div class="scene" style="--c:var(--p-mint)"><svg class="sc-svg" viewBox="0 0 400 300" aria-hidden="true"><g transform="translate(110 40) scale(2.8)">'+ICONS.trophee.replace(/^<svg[^>]*>|<\/svg>$/g,'')+'</g></svg></div>';
+    texte='<h2 class="sc-titre">Bravo, tu as tout lu !</h2><div class="sc-lignes"><p>Maintenant, réponds aux questions.</p></div>'+
+      '<div class="actions inline"><button type="button" class="btn primary" id="toQuiz">Je réponds aux questions</button><button type="button" class="btn" id="toTop">Je relis depuis le début</button></div>';
+  }else{
+    const L=lignes(p);
+    media=p.video?'<div class="vbloc">'+(location.protocol==='file:'?'':'<div class="vcadre"><iframe src="https://www.youtube-nocookie.com/embed/'+p.video+'?playsinline=1&rel=0" title="'+esc(p.titre)+'" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>')+'<a class="btn yt" href="https://www.youtube.com/shorts/'+p.video+'" target="_blank" rel="noopener"><svg viewBox="0 0 28 20" aria-hidden="true"><rect width="28" height="20" rx="6" fill="#FF0000"/><path d="M11 5.5v9l8-4.5z" fill="#fff"/></svg><span>Regarder sur YouTube</span></a><p class="vsource">Vidéo : '+esc(p.source)+'. Il faut Internet.</p></div>'
+      :'<div class="scene" style="--c:var('+p.c+')"><svg class="sc-svg" viewBox="0 0 400 300" aria-hidden="true">'+SCENES[p.sc].html()+'</svg></div>';
+    texte='<span class="rc-num">Partie '+(k+1)+' sur '+n+'</span>'+
+      '<h2 class="sc-titre">'+esc(p.titre)+'</h2>'+
+      '<div class="sc-lignes'+(texteFacile()?' facile':'')+'">'+L.map(t=>'<p>'+gras(t)+'</p>').join('')+'</div>'+
+      (p.d?'<details class="sc-def"><summary>'+ICONS.lire+'<span>'+esc(p.d[0])+'</span></summary><p>'+esc(p.d[1])+'</p></details>':'')+
+      '<div class="rc-nav">'+(k>0?'<button type="button" class="btn" data-aller="'+(k-1)+'">Précédent</button>':'')+
+        '<button type="button" class="btn primary" data-aller="'+(k+1)+'">'+(k<n-1?'Suivant':'J’ai tout lu')+'</button></div>';
   }
-  if(k<PARTIES.length){
-    const sc=SCENES[PARTIES[k].sc];if(sc)sc.maj($('.sc-svg[data-k="'+k+'"]',main),t);
-    /* les phrases apparaissent l'une après l'autre ; les parties déjà passées restent entières */
-    $$('.sc-lignes p',st).forEach(p=>p.classList.toggle('vu',t>=Number(p.dataset.i)/Number(p.dataset.n)*.5));
-  }
-  steps.forEach((s,j)=>{if(j<k)$$('.sc-lignes p',s).forEach(p=>p.classList.add('vu'));});
+  header({segs:[Math.min(k+1,n),n],listen:()=>say(fin?'Bravo, tu as tout lu ! Maintenant, réponds aux questions.':p.titre+'. '+lignes(p).map(sansGras).join(' ')+(p.d?' '+p.d[0]+' : '+p.d[1]+'.':''))});
+  view('<div class="recit"><div class="rc-media">'+media+'</div><div class="rc-texte">'+texte+'</div></div>');
+  $$('[data-aller]',main).forEach(b=>b.addEventListener('click',()=>renderDecouvrir(Number(b.dataset.aller))));
+  if(fin){$('#toQuiz').addEventListener('click',renderDefi);$('#toTop').addEventListener('click',()=>renderDecouvrir(0));}
+  else if(!p.video)animerScene($('.sc-svg',main),SCENES[p.sc]);
 }
-main.addEventListener('scroll',()=>{if(S.scrolly)requestAnimationFrame(scrollyMaj);},{passive:true});
+/* Glisser le doigt vers la gauche ou la droite pour changer de partie */
+let rx=null,ry=null;
+main.addEventListener('touchstart',e=>{if(!S.recit)return;rx=e.touches[0].clientX;ry=e.touches[0].clientY;},{passive:true});
+main.addEventListener('touchend',e=>{if(!S.recit||rx===null)return;const dx=e.changedTouches[0].clientX-rx,dy=e.changedTouches[0].clientY-ry;rx=null;
+  if(Math.abs(dx)>70&&Math.abs(dx)>Math.abs(dy)*1.5){const k=S.recit.k+(dx<0?1:-1);if(k>=0&&k<=PARTIES.length)renderDecouvrir(k);}});
 
 /* ---------- Je choisis mon défi : écran à part, juste avant les questions ---------- */
-const DEFIS_TXT={'1':'La réponse est écrite dans le texte.','2':'Il faut relier 2 phrases.','3':'Il faut réfléchir.'};
 function renderDefi(){
-  S.scrolly=null;
-  header({title:'Je comprends',listen:()=>say('Je choisis mon défi. '+DEFIS.map(d=>d[1]+' : '+NB_PAR_DEFI[d[0]]+' questions. '+DEFIS_TXT[d[0]]).join(' '))});
+  S.recit=null;cancelAnimationFrame(S.anim);
+  header({title:'Je comprends',listen:()=>say('Je choisis mon défi. '+DEFIS.map(d=>d[1]+' : '+NB_PAR_DEFI[d[0]]+' questions.').join(' '))});
   view('<h1>Je choisis mon défi</h1>'+
-    '<div class="tiles defis-tuiles">'+DEFIS.map((d,k)=>'<button type="button" class="tile" data-defi-go="'+d[0]+'" style="--c:var('+['--p-mint','--p-yellow','--p-peach'][k]+')"><span class="ico">'+ICONS.etoile.replace('<svg','<svg data-n="'+(k+1)+'"')+'</span><span class="name">'+d[1]+'</span><span class="desc">'+NB_PAR_DEFI[d[0]]+' questions. '+DEFIS_TXT[d[0]]+'</span></button>').join('')+'</div>'+
+    '<div class="tiles defis-tuiles">'+DEFIS.map((d,k)=>'<button type="button" class="tile" data-defi-go="'+d[0]+'" style="--c:var('+['--p-mint','--p-yellow','--p-peach'][k]+')"><span class="etoiles">'+ICONS.etoile.repeat(k+1)+'</span><span class="name">'+d[1]+'</span><span class="desc">'+NB_PAR_DEFI[d[0]]+' questions</span></button>').join('')+'</div>'+
     '<div class="actions"><button type="button" class="btn" id="retourBtn">Accueil</button></div>');
   $$('[data-defi-go]',main).forEach(b=>b.addEventListener('click',()=>{store('defi',b.dataset.defiGo);startQuiz(false);}));
   $('#retourBtn').addEventListener('click',renderHome);
@@ -950,7 +920,7 @@ function renderDefi(){
 
 /* ---------- 2. Je comprends : questions à 3 choix (2 pour vrai ou faux) ---------- */
 function startQuiz(diffMode){
-  S.scrolly=null;
+  S.recit=null;cancelAnimationFrame(S.anim);
   let ids;
   if(diffMode){const d=difficiles();ids=QUESTIONS.filter(q=>d.indexOf('q:'+q.id)>=0).map(q=>q.id);if(!ids.length)return renderHome();ids=shuffle(ids).slice(0,10);}
   else{const def=defiActuel();ids=piocheIds('quiz-'+def+(texteFacile()?'-f':''),QUESTIONS.filter(q=>defiOk(q.n)&&!(q.c&&texteFacile())).map(q=>q.id),NB_PAR_DEFI[def]);}
@@ -989,7 +959,7 @@ const ETAPES_PROJET=[
   {titre:'Comment présenter ?',ok:()=>true}
 ];
 function renderProjet(i){
-  S.scrolly=null;const f=fiche(),n=ETAPES_PROJET.length;
+  S.recit=null;cancelAnimationFrame(S.anim);const f=fiche(),n=ETAPES_PROJET.length;
   if(i>=n)return renderFiche();
   const e=ETAPES_PROJET[i];
   let corps='',dit=e.titre+'.';
@@ -1091,19 +1061,13 @@ mb.addEventListener('touchend',e=>{if(tx===null)return;const dx=e.changedTouches
 function layout(){
   const W=innerWidth,H=innerHeight;
   document.body.classList.toggle('portrait',H>W*1.05);
-  /* Scrollytelling : tailles d'après la hauteur réelle de la zone qui défile (divisée par le zoom du texte) */
-  const visu=$('.sc-visu',main);
-  if(visu){
+  /* Récit : la scène et la vidéo tiennent dans l'écran, sans défiler */
+  if($('.recit',main)){
     const z=Number(zoomLevel())||1,mh=main.clientHeight/z,r=document.documentElement.style,portrait=document.body.classList.contains('portrait');
     $('.wrap',main).classList.add('large');
-    if(portrait)r.setProperty('--sceneh',Math.round(Math.max(220,Math.min(mh*.36,420)))+'px');
-    else r.setProperty('--sceneh',Math.round(Math.min(mh-30,visu.offsetWidth*.95))+'px');
-    r.setProperty('--sctop',(portrait?visu.offsetHeight:12)+'px');
-    r.setProperty('--scstep',Math.round(mh*1.2)+'px');
-    r.setProperty('--scfin',Math.round(mh*.25)+'px');
-    /* vidéo : la plus grande possible sous la scène (portrait) ou dans la colonne (paysage) */
-    r.setProperty('--vh',Math.round(Math.max(320,portrait?mh-visu.offsetHeight-200:mh*.72))+'px');
-    if(S.scrolly){S.scrolly.i=-1;scrollyMaj();}
+    const w=$('.rc-media',main).offsetWidth;
+    r.setProperty('--sceneh',Math.round(portrait?Math.max(220,Math.min(mh*.36,w*.75)):Math.max(240,Math.min(mh-80,w*.8)))+'px');
+    r.setProperty('--vh',Math.round(Math.max(300,portrait?mh*.42:mh-150))+'px');
   }
 }
 let lt=null;const ro=new ResizeObserver(()=>{cancelAnimationFrame(lt);lt=requestAnimationFrame(layout);});
