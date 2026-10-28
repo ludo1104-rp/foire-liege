@@ -41,5 +41,5 @@ https://ludo1104-rp.github.io/foire-liege/ (dépôt ludo1104-rp/foire-liege).
 - Clé de stockage `foire-liege` : ne plus la changer.
 
 ## Prochaine étape
-- Version 1.1 prête en local (étiquettes, faits, sources) : publier si Ludo dit « publie ».
+- Version 1.1 publiée le 28/10/2026 (étiquettes, faits vérifiés, sources).
 - Ludo teste en classe sur iPad (animation au doigt, vidéo, voix) et donne ses retours.
