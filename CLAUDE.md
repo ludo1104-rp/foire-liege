@@ -1,7 +1,8 @@
 # La Foire de Liège — famille 1 (applis élèves)
 
 Séquence de cours pour iPad sur la Foire d'octobre de Liège. Version 1.0,
-pas encore publiée (adresse prévue : https://ludo1104-rp.github.io/foire-liege/).
+publiée le 28/10/2026 :
+https://ludo1104-rp.github.io/foire-liege/ (dépôt ludo1104-rp/foire-liege).
 
 ## Contenu
 - **Je découvre** : récit animé en 10 parties (`PARTIES`). Chaque partie a une
@@ -34,4 +35,4 @@ pas encore publiée (adresse prévue : https://ludo1104-rp.github.io/foire-liege
 - Clé de stockage `foire-liege` : ne plus la changer.
 
 ## Prochaine étape
-- Ludo relit les textes et teste sur iPad (animation au doigt, vidéo, voix), puis dit « publie ».
+- Ludo teste en classe sur iPad (animation au doigt, vidéo, voix) et donne ses retours.
