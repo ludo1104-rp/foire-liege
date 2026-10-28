@@ -1,5 +1,7 @@
 # La Foire de Liège — famille 1 (applis élèves)
 
+Public : **Tous** (étiquettes : Tous, Ma classe, Les deux — à confirmer par Ludo).
+
 Séquence de cours pour iPad sur la Foire d'octobre de Liège. Version 1.0,
 publiée le 28/10/2026 :
 https://ludo1104-rp.github.io/foire-liege/ (dépôt ludo1104-rp/foire-liege).
@@ -26,8 +28,12 @@ https://ludo1104-rp.github.io/foire-liege/ (dépôt ludo1104-rp/foire-liege).
 - Sources de l'appli : scratchpad de session (contenu.js, scenes.js, ecrans.js…)
   assemblées avec le gabarit. Pour une retouche, modifier `index.html` directement.
 - `q.p` = numéro de l'identifiant de la partie (p10 = la vidéo), pas sa position.
-- Dates : départ de La Batte en 1854 (Wikipédia), installation définitive
-  en 1865 (vidéo). 2026 : plus de 160 attractions (vidéo).
+- Faits vérifiés le 28/10/2026 (sources dans `SOURCES`, bouton « Sources »
+  de l'accueil). 1854 = départ de La Batte, d'abord provisoire (Wikipédia) ;
+  1865 = « pour de bon », dit seulement par la vidéo (texte : « D'après la
+  vidéo »). Année du patrimoine FWB non confirmée : pas de date dans le texte.
+- Étiquettes : majuscule au début (`majuscule()` à l'affichage, les valeurs
+  enregistrées de `MOTS` ne changent pas).
 - La vidéo demande Internet. Ouverte comme fichier (file://), YouTube refuse
   (erreur 153) : l'appli montre alors seulement le bouton YouTube. Tester via
   `python3 -m http.server`.
@@ -35,4 +41,5 @@ https://ludo1104-rp.github.io/foire-liege/ (dépôt ludo1104-rp/foire-liege).
 - Clé de stockage `foire-liege` : ne plus la changer.
 
 ## Prochaine étape
+- Version 1.1 prête en local (étiquettes, faits, sources) : publier si Ludo dit « publie ».
 - Ludo teste en classe sur iPad (animation au doigt, vidéo, voix) et donne ses retours.

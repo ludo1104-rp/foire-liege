@@ -99,6 +99,7 @@ h1{font-size:clamp(30px,5vw,40px);line-height:1.15;letter-spacing:-.015em}
 .size-pill{min-height:46px;padding:0 16px;border-radius:999px;border:0;background:var(--surface);font-size:16px;display:inline-flex;align-items:center;gap:6px}
 .size-pill[aria-pressed="true"]{background:var(--sel-bg);box-shadow:inset 0 0 0 2px var(--sel)}
 .foot{margin-top:8px;font-size:13px;line-height:1.6;color:var(--muted);text-align:left}
+.sources{font-size:14px;color:var(--muted);margin-top:8px}.sources summary{display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border-radius:999px;border:1px solid var(--line-strong);cursor:pointer}.sources ul{margin:10px 0 0;padding-left:20px;line-height:1.6}.sources a{color:inherit}
 
 /* ---------- Boutons ---------- */
 .btn{min-height:58px;padding:0 24px;border-radius:999px;border:0;background:var(--surface);font-size:19px;transition:transform .08s}
@@ -349,7 +350,7 @@ body.simple .fiche-mot{background:var(--surface)}
 const APP={
   titre:'La Foire de Liège',
   sousTitre:'Découvre la plus vieille fête foraine de Belgique.',
-  version:'1.0',                     // +0.1 à chaque publication
+  version:'1.1',                     // +0.1 à chaque publication
   sourceInternet:true,               // Wikipédia « Foire de Liège » (fr et en) + vidéo Qu4tre – Liège Média (2026)
   sourceAutre:'',
   cle:'foire-liege'                  // NE PLUS LE CHANGER après la 1re publication
@@ -380,11 +381,11 @@ const PARTIES=[
     l:['La foire a commencé en **1594**.','C’est le **prince-évêque** Ernest de Bavière qui l’a créée.','La foire a plus de 400 ans !','C’est la plus vieille fête foraine de Belgique qui existe encore.'],
     d:['Un prince-évêque','un chef religieux qui dirigeait aussi la ville et la région.']},
   {id:'p5',titre:'De La Batte au boulevard',sc:'demenagement',c:'--p-teal',
-    t:['À partir de 1687, on l’appelle la foire de la Saint-Simon et Saint-Jude, du nom de la fête du 28 octobre.','Pendant près de 200 ans, elle se tient sur **La Batte**, un quai au bord de la **Meuse**.','En **1854**, on construit de nouveaux quais : la foire doit partir vers les boulevards. Le boulevard d’Avroy avait été créé en 1835.','Depuis **1871**, elle commence en octobre et non plus en novembre.'],
-    l:['Au début, la foire est sur **La Batte**.','La Batte est un quai au bord de la **Meuse**.','En 1854, la foire part sur le boulevard d’Avroy.','Avant, la foire commençait en novembre.','Depuis 1871, elle commence en octobre.'],
+    t:['À partir de 1687, on l’appelle la foire de la Saint-Simon et Saint-Jude, du nom de la fête du 28 octobre.','Pendant près de 200 ans, elle se tient sur **La Batte**, un quai au bord de la **Meuse**.','En **1854**, on construit de nouveaux quais : la foire doit partir sur le boulevard d’Avroy, créé en 1835. Au début, ce départ devait être provisoire.','Depuis **1871**, elle commence en octobre et non plus en novembre.'],
+    l:['Au début, la foire est sur **La Batte**.','La Batte est un quai au bord de la **Meuse**.','En 1854, la foire quitte La Batte.','Avant, la foire commençait en novembre.','Depuis 1871, elle commence en octobre.'],
     d:['Un quai','une rue au bord de l’eau, où les bateaux s’arrêtent.']},
   {id:'p10',titre:'La foire d’autrefois (vidéo)',sc:'video',c:'--p-gris',video:'h2vPRoAUzhQ',source:'Qu4tre – Liège Média, 2026',
-    t:['Cette courte vidéo de Qu4tre – Liège Média montre la foire d’autrefois.','Avant les manèges, des **musiciens**, des **jongleurs** et des **montreurs d’animaux** attiraient les visiteurs. Il y avait aussi des **marionnettes**.','Ensuite, les attractions à **vapeur** sont arrivées.','En **1865**, la foire s’installe pour de bon sur les boulevards.','Le **Rotor** est là depuis 1969. En 2026, la foire dure jusqu’au 11 novembre.'],
+    t:['Cette courte vidéo de Qu4tre – Liège Média montre la foire d’autrefois.','Elle raconte qu’avant les manèges, des **musiciens**, des **jongleurs** et des **montreurs d’animaux** attiraient les visiteurs. Il y avait aussi des **marionnettes**.','Ensuite, les attractions à **vapeur** sont arrivées.','D’après la vidéo, c’est en **1865** que la foire s’installe pour de bon sur les boulevards.','Le **Rotor** est là depuis 1969. En 2026, la foire dure jusqu’au 11 novembre.'],
     l:['Regarde la vidéo.','Autrefois, il n’y avait pas de manèges.','Il y avait des **musiciens**, des **jongleurs** et des **marionnettes**.','Ensuite, les manèges à **vapeur** sont arrivés.','En **1865**, la foire reste pour de bon sur les boulevards.','Le **Rotor** est là depuis 1969.'],
     d:['La vapeur','de l’eau chauffée très fort. Autrefois, elle faisait tourner les machines et les manèges.']},
   {id:'p6',titre:'Les attractions et les forains',sc:'attractions',c:'--p-blue',
@@ -392,16 +393,16 @@ const PARTIES=[
     l:['Il y a plus de **160** attractions.','Il y a des manèges qui font peur.','Il y a aussi des manèges pour les petits.','Les **forains** font marcher les attractions.'],
     d:['Un forain','une personne qui travaille dans les fêtes foraines. Il voyage de ville en ville avec son manège.']},
   {id:'p7',titre:'Croustillons et lacquemants',sc:'manger',c:'--p-rose',
-    t:['La foire, c’est aussi une odeur : celle des **croustillons**, des petits beignets couverts de sucre impalpable.','Le **lacquemant** est la spécialité liégeoise : une gaufre fine et croustillante, fourrée d’un sirop sucré.','On trouve aussi des gaufres de Liège, des frites, des hot-dogs et même des fruits de mer.'],
+    t:['La foire, c’est aussi une odeur : celle des **croustillons**, des petits beignets couverts de sucre impalpable.','Le **lacquemant** est la spécialité liégeoise : une gaufre fine et croustillante, fourrée et nappée d’un sirop de sucre candi.','On trouve aussi des gaufres de Liège, des frites, des hot-dogs et même des fruits de mer.'],
     l:['À la foire, il y a de bonnes choses à manger.','Il y a des **lacquemants** : des gaufres fines avec du sirop.','Le lacquemant est une spécialité de Liège.','Il y a des **croustillons** : des petits beignets avec du sucre.','Il y a aussi des gaufres et des frites.'],
     d:['Une spécialité','un plat typique d’une ville ou d’une région.']},
   {id:'p8',titre:'Un million et demi de visiteurs',sc:'visiteurs',c:'--p-peach',
-    t:['Chaque année, plus de **1 500 000** visiteurs passent à la foire.','Beaucoup viennent de loin : à plus de 50 km de Liège.','En **2020**, à cause de la pandémie de **Covid-19**, la foire a été annulée. C’était seulement la 2e fois de son histoire.'],
+    t:['Chaque année, plus de **1 500 000** visiteurs passent à la foire.','Une bonne partie vient de loin : à plus de 50 km de Liège.','En **2020**, à cause de la pandémie de **Covid-19**, la foire a été annulée. C’était seulement la 2e fois de son histoire. La 1re fois, en 1892, c’était à cause d’une épidémie de choléra.'],
     l:['Chaque année, plus de **1 500 000** visiteurs viennent à la foire.','Certains viennent de loin.','En **2020**, la foire a été annulée à cause du **Covid**.'],
     d:['Annulée','la fête n’a pas eu lieu.']},
   {id:'p9',titre:'Un trésor à protéger',sc:'tresor',c:'--p-yellow',
-    t:['En **2021**, « la culture vivante de la fête foraine » a été reconnue comme chef-d’œuvre du **patrimoine** de la Fédération Wallonie-Bruxelles.','Ce patrimoine-là n’est pas un bâtiment : ce sont des traditions et des savoir-faire.','On veut les transmettre aux générations futures.'],
-    l:['En **2021**, la fête foraine est reconnue comme **patrimoine** de la Fédération Wallonie-Bruxelles.','La fête foraine est une tradition importante.','On veut la protéger pour le futur.'],
+    t:['« La culture vivante de la fête foraine » est reconnue comme chef-d’œuvre du **patrimoine** de la Fédération Wallonie-Bruxelles.','Ce patrimoine-là n’est pas un bâtiment : ce sont des traditions et des savoir-faire.','On veut les transmettre aux générations futures.'],
+    l:['La fête foraine est reconnue comme **patrimoine** de la Fédération Wallonie-Bruxelles.','La fête foraine est une tradition importante.','On veut la protéger pour le futur.'],
     d:['Le patrimoine','des trésors du passé que l’on veut garder.']}
 ];
 
@@ -442,7 +443,7 @@ const QUESTIONS=[
   {id:'q30',n:3,p:6,c:1,q:'Pourquoi dit-on que forain est souvent un métier de famille ?',r:'Il passe des parents aux enfants.',f:['Il faut avoir 5 enfants.','On travaille seulement le dimanche.']},
   {id:'q31',n:1,p:10,q:'Dans la vidéo, quel manège est présent depuis 1969 ?',r:'Le Rotor',f:['La grande roue','Le grand huit']},
   {id:'q32',n:2,p:10,q:'Autrefois, avant les manèges, qu’est-ce qui attirait les visiteurs ?',r:'Des musiciens, des jongleurs et des montreurs d’animaux',f:['Des jeux vidéo','Des concerts de rock']},
-  {id:'q33',n:2,p:10,q:'En quelle année la foire s’installe-t-elle pour de bon sur les boulevards ?',r:'En 1865',f:['En 1965','En 2005']},
+  {id:'q33',n:2,p:10,q:'D’après la vidéo, en quelle année la foire s’installe-t-elle pour de bon sur les boulevards ?',r:'En 1865',f:['En 1965','En 2005']},
   {id:'q34',n:3,p:10,q:'Laquelle de ces attractions existait déjà autrefois ?',r:'Les marionnettes',f:['Les jeux vidéo','Le cinéma en 3D']},
   {id:'q35',n:1,p:10,q:'Vrai ou faux ? Dans la vidéo, la foire de 2026 dure jusqu’au 11 novembre.',r:'Vrai',f:['Faux']},
   {id:'q36',n:3,p:10,q:'Vrai ou faux ? Les attractions à vapeur sont arrivées après les musiciens et les jongleurs.',r:'Vrai',f:['Faux']}
@@ -456,6 +457,15 @@ const GENRES=[['grandhuit','Grand huit'],['manege','Manège pour les petits'],['
 const MOTS=['rapide','haute','calme','amusante','mouillée','qui fait peur','qui tourne','pour toute la famille','pour les grands'];
 const RAISONS=['J’aime la vitesse.','Je l’ai déjà faite.','Elle a l’air amusante.','Elle fait un peu peur.'];
 
+/* Sources des données (vérifiées le 28/10/2026), affichées sur l'accueil */
+const SOURCES=[
+  ['Wikipédia : « Foire de Liège »','https://fr.wikipedia.org/wiki/Foire_de_Li%C3%A8ge'],
+  ['Wikipédia (en anglais) : « Liège October Fair »','https://en.wikipedia.org/wiki/Foire_de_Li%C3%A8ge'],
+  ['Vidéo de Qu4tre – Liège Média : « À quoi ressemblait la Foire de Liège autrefois ? » (2026)','https://www.youtube.com/shorts/h2vPRoAUzhQ'],
+  ['The Brussels Times : la foire dure cinq semaines (2024)','https://brusselstimes.com/1250797/belgiums-biggest-and-oldest-fair-moves-to-heart-of-liege-for-five-weeks'],
+  ['L’Avenir : « La foire de Liège est annulée » (2020)','https://www.lavenir.net/cnt/dmf20201006_01517057/la-foire-de-liege-est-annulee'],
+  ['Fédération Wallonie-Bruxelles : « La culture vivante de la fête foraine »','https://patrimoineculturel.cfwb.be/fileadmin/sites/colpat/uploads/GRAPHISME/Patrimoine_fwb/images_BD_PCI/45-2022-Culture_foraine_DOSSIER_COMPLET.pdf']
+];
 /* Lignes FALC de l'accueil : [icône, phrase courte] */
 const ACCUEIL_LIGNES=[
   ['lire','Découvre l’histoire de la foire.'],
@@ -500,7 +510,7 @@ function roueSvg(){
 Object.assign(ICONS,{
   roue:roueSvg(),
   calendrier:svg('<rect x="20" y="24" width="80" height="76" rx="12" fill="#FFFFFF"/><path d="M20 36a12 12 0 0 1 12-12h56a12 12 0 0 1 12 12v12H20z" fill="#E8735A"/><rect x="36" y="16" width="6" height="16" rx="3" fill="#854F0B"/><rect x="78" y="16" width="6" height="16" rx="3" fill="#854F0B"/>'+
-    '<text x="60" y="44" text-anchor="middle" font-family="Arial" font-size="13" fill="#FFFFFF">octobre</text>'+
+    '<text x="60" y="44" text-anchor="middle" font-family="Arial" font-size="13" fill="#FFFFFF">Octobre</text>'+
     [0,1,2,3,4].map(c=>[0,1,2].map(l=>'<rect x="'+(30+c*13)+'" y="'+(56+l*13)+'" width="8" height="8" rx="2" fill="'+(c+l*5<6?'#F0997B':'#E0E5EC')+'"/>').join('')).join('')+
     '<path d="M92 92c10-16 22-14 24-12-2 2-4 16-22 18z" fill="#EF9F27"/><path d="M92 94l18-12" stroke="#BA7517" stroke-width="2" stroke-linecap="round"/>','0 0 120 120'),
   boulevard:svg('<path d="M46 30h28l26 80H20z" fill="#B9C2CE"/><path d="M60 36v10M60 56v12M60 80v16" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>'+
@@ -547,6 +557,8 @@ Object.assign(ICONS,{
    html : le dessin. maj(g, t) : l'état de la scène quand la partie avance (t de 0 à 1).
    Les textes du dessin sont en --tile-ink sur le fond pastel.
    ===================================================================== */
+/* Majuscule en début d'étiquette (affichage seulement) */
+const majuscule=t=>t.charAt(0).toUpperCase()+t.slice(1);
 const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
 const lerp=(a,b,t)=>a+(b-a)*t;
 const doux=t=>t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;
@@ -572,20 +584,20 @@ const SCENES={
       g.querySelectorAll('.pp').forEach((p,k)=>p.style.opacity=entre(t,k*.1,k*.1+.15));}
   },
   calendrier:{
-    html:()=>{let s='<text id="mois" x="200" y="62" text-anchor="middle" font-size="40" fill="#1F2933" font-family="Arial">octobre</text>';
+    html:()=>{let s='<text id="mois" x="200" y="62" text-anchor="middle" font-size="40" fill="#1F2933" font-family="Arial">Octobre</text>';
       s+='<rect x="50" y="150" width="300" height="16" rx="8" fill="#FFFFFF"/><rect id="barre" x="50" y="150" width="0" height="16" rx="8" fill="#E8735A"/>';
       for(let k=0;k<=5;k++)s+='<rect x="'+(50+k*55)+'" y="144" width="3" height="28" rx="1.5" fill="#BA7517"/>';
       s+='<text x="50" y="200" font-size="15" fill="#1F2933" font-family="Arial">1er samedi d’octobre</text><text x="350" y="200" text-anchor="end" font-size="15" fill="#1F2933" font-family="Arial">11 novembre</text>';
       s+='<text id="sem" x="200" y="120" text-anchor="middle" font-size="22" fill="#1F2933" font-family="Arial"></text>';
       return s;},
     maj:(g,t)=>{g.querySelector('#barre').setAttribute('width',300*t);
-      g.querySelector('#mois').textContent=t<.72?'octobre':'novembre';
+      g.querySelector('#mois').textContent=t<.72?'Octobre':'Novembre';
       const sem=Math.max(1,Math.ceil(t*5.5));g.querySelector('#sem').textContent=t>.95?'5 à 6 semaines':'Semaine '+sem;}
   },
   carte:{
     html:()=>{let s=MEUSE+'<path id="bd" d="'+BOULEVARD+'" stroke="#8792A0" stroke-width="12" fill="none" stroke-linecap="round"/>';
       for(let k=0;k<10;k++)s+='<circle class="loge" r="8" fill="'+COULEURS[k]+'" stroke="#FFFFFF" stroke-width="2"/>';
-      return s+'<text id="km" x="170" y="160" font-size="22" fill="#1F2933" font-family="Arial">1 km</text><text x="20" y="40" font-size="16" fill="#1F2933" font-family="Arial">boulevard d’Avroy</text>';},
+      return s+'<text id="km" x="170" y="160" font-size="22" fill="#1F2933" font-family="Arial">1 km</text><text x="20" y="40" font-size="16" fill="#1F2933" font-family="Arial">Boulevard d’Avroy</text>';},
     maj:(g,t)=>{const bd=g.querySelector('#bd'),L=bd.getTotalLength();bd.style.strokeDasharray=L;bd.style.strokeDashoffset=L*(1-entre(t,0,.6));
       g.querySelectorAll('.loge').forEach((c,k)=>{const pt=bd.getPointAtLength(L*(k+.5)/10),v=entre(t,.1+k*.06,.2+k*.06);c.setAttribute('cx',pt.x+(k%2?16:-16));c.setAttribute('cy',pt.y);c.setAttribute('r',8*v);});
       g.querySelector('#km').style.opacity=entre(t,.8,.95);}
@@ -597,21 +609,21 @@ const SCENES={
       '<text id="age" x="200" y="200" text-anchor="middle" font-size="20" fill="#1F2933" font-family="Arial"></text>'+
       '<rect x="60" y="262" width="280" height="8" rx="4" fill="#FFFFFF"/><circle id="pt" cx="60" cy="266" r="10" fill="#7F77DD"/><text x="60" y="294" text-anchor="middle" font-size="14" fill="#1F2933" font-family="Arial">1594</text><text x="340" y="294" text-anchor="middle" font-size="14" fill="#1F2933" font-family="Arial">2026</text>',
     maj:(g,t)=>{const e=doux(entre(t,.05,.85)),an=Math.round(1594+432*e);g.querySelector('#an').textContent=an;
-      g.querySelector('#age').textContent=an>1594?'il y a '+(an-1594)+' ans…':'la foire est créée';
+      g.querySelector('#age').textContent=an>1594?'Il y a '+(an-1594)+' ans…':'La foire est créée';
       g.querySelector('#pt').setAttribute('cx',60+280*e);}
   },
   demenagement:{
     html:()=>MEUSE+'<path d="'+BOULEVARD+'" stroke="#8792A0" stroke-width="12" fill="none" stroke-linecap="round"/>'+
-      '<rect x="268" y="110" width="20" height="70" rx="6" fill="#B9C2CE" transform="rotate(20 278 145)"/><text x="196" y="118" font-size="16" fill="#1F2933" font-family="Arial">La Batte</text><text x="20" y="40" font-size="16" fill="#1F2933" font-family="Arial">boulevard d’Avroy</text>'+
+      '<rect x="268" y="110" width="20" height="70" rx="6" fill="#B9C2CE" transform="rotate(20 278 145)"/><text x="196" y="118" font-size="16" fill="#1F2933" font-family="Arial">La Batte</text><text x="20" y="40" font-size="16" fill="#1F2933" font-family="Arial">Boulevard d’Avroy</text>'+
       '<path id="trajet" d="M276 148C230 200 170 190 130 160" stroke="#1F2933" stroke-width="3" stroke-dasharray="4 7" fill="none"/>'+
       '<g id="foire">'+stand(0,8,'#FAC775','#E8735A')+'</g><rect x="120" y="250" width="160" height="40" rx="20" fill="#FFFFFF"/><text id="date" x="200" y="277" text-anchor="middle" font-size="20" fill="#1F2933" font-family="Arial">1594</text>',
     maj:(g,t)=>{const tr=g.querySelector('#trajet'),L=tr.getTotalLength(),e=doux(entre(t,.3,.75)),pt=tr.getPointAtLength(L*e);
       tr.style.strokeDashoffset=0;tr.style.opacity=entre(t,.2,.3);
       g.querySelector('#foire').setAttribute('transform','translate('+pt.x+' '+pt.y+')');
-      g.querySelector('#date').textContent=t<.15?'1594':t<.3?'1687':t<.75?'1854':t<.9?'1871':'aujourd’hui';}
+      g.querySelector('#date').textContent=t<.15?'1594':t<.3?'1687':t<.75?'1854':t<.9?'1871':'Aujourd’hui';}
   },
   attractions:{
-    html:()=>{let s='<text id="nb" x="200" y="66" text-anchor="middle" font-size="54" fill="#1F2933" font-family="Arial">0</text><text x="200" y="94" text-anchor="middle" font-size="17" fill="#1F2933" font-family="Arial">attractions et stands</text><rect x="0" y="262" width="400" height="38" fill="#E6D6B8"/>';
+    html:()=>{let s='<text id="nb" x="200" y="66" text-anchor="middle" font-size="54" fill="#1F2933" font-family="Arial">0</text><text x="200" y="94" text-anchor="middle" font-size="17" fill="#1F2933" font-family="Arial">Attractions et stands</text><rect x="0" y="262" width="400" height="38" fill="#E6D6B8"/>';
       const it=['<circle cx="0" cy="-46" r="40" fill="none" stroke="#7F77DD" stroke-width="5"/><path d="M0-46-22 0M0-46 22 0" stroke="#7F77DD" stroke-width="5"/><g class="tourne"><path d="M-40-46h80M0-86v80" stroke="#AFA9EC" stroke-width="3"/></g>',
         '<path d="M-44 0C-30-90 -10-90 0-40S30-10 44-80" stroke="#E8735A" stroke-width="5" fill="none"/><path d="M-30 0v-50M0 0v-40M30 0v-50" stroke="#B9C2CE" stroke-width="3"/>',
         '<path d="M0-90-40-56h80z" fill="#E8735A"/><rect x="-40" y="-56" width="80" height="8" fill="#FAC775"/><path d="M-26-48v40M0-48v40M26-48v40" stroke="#B9C2CE" stroke-width="3"/><ellipse cx="0" cy="-6" rx="44" ry="8" fill="#7F77DD"/>',
@@ -626,11 +638,11 @@ const SCENES={
   manger:{
     html:()=>{let s='<g id="gaufre"><rect x="0" y="0" width="120" height="86" rx="12" fill="#E9B872"/>';
       for(let k=1;k<4;k++)s+='<path d="M'+(k*30)+' 4v78M4 '+(k*21.5)+'h112" stroke="#C48A3A" stroke-width="4"/>';
-      s+='<path d="M12 40h96" stroke="#8B4A1C" stroke-width="7" stroke-linecap="round"/></g><text id="lq" x="80" y="250" text-anchor="middle" font-size="16" fill="#1F2933" font-family="Arial">lacquemant</text>';
+      s+='<path d="M12 40h96" stroke="#8B4A1C" stroke-width="7" stroke-linecap="round"/></g><text id="lq" x="80" y="250" text-anchor="middle" font-size="16" fill="#1F2933" font-family="Arial">Lacquemant</text>';
       s+='<path d="M230 140h120l-60 140z" fill="#FFFFFF" stroke="#E0E5EC" stroke-width="3"/><path d="M244 170h92M258 205h64" stroke="#F4A3B4" stroke-width="5"/>';
       for(let k=0;k<6;k++)s+='<circle class="crou" r="17" fill="'+(k%2?'#D9A25A':'#E9B872')+'"/>';
       s+='<g id="sucre" fill="#FFFFFF">';for(let k=0;k<14;k++)s+='<circle cx="'+(250+(k*37)%80)+'" cy="'+(80+(k*23)%50)+'" r="2.6"/>';
-      return s+'</g><text x="290" y="296" text-anchor="middle" font-size="16" fill="#1F2933" font-family="Arial">croustillons</text>';},
+      return s+'</g><text x="290" y="296" text-anchor="middle" font-size="16" fill="#1F2933" font-family="Arial">Croustillons</text>';},
     maj:(g,t)=>{g.querySelector('#gaufre').setAttribute('transform','translate('+lerp(-140,20,doux(entre(t,0,.4)))+' 120)');g.querySelector('#lq').style.opacity=entre(t,.3,.45);
       const cible=[[262,128],[292,124],[322,128],[276,104],[308,102],[292,82]];
       g.querySelectorAll('.crou').forEach((c,k)=>{const v=doux(entre(t,.3+k*.08,.45+k*.08));c.setAttribute('cx',cible[k][0]);c.setAttribute('cy',lerp(-30,cible[k][1],v));});
@@ -816,7 +828,7 @@ function ecranResultat(res,rejouer,accueil){
 
 
 function mentions(){
-  const src=APP.sourceInternet?' à partir d\u2019un document Internet':(APP.sourceAutre?' '+APP.sourceAutre:'');
+  const src=APP.sourceInternet?' à partir de documents Internet (voir « Sources »)':(APP.sourceAutre?' '+APP.sourceAutre:'');
   return '<div class="foot">Version '+esc(APP.version)+'<br>Application produite par IA'+esc(src)+'. Des erreurs peuvent survenir.<br>Application développée par Claude AI sous la supervision de Ludo<b style="font-weight:700;font-size:1.35em;line-height:0">.</b> (@rprof_1) · <a href="https://rprof1.com" target="_blank" rel="noopener" style="color:inherit">rprof1.com</a>.<br>Licence <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.fr" target="_blank" rel="noopener" style="color:inherit">CC BY-NC-SA 4.0</a>.</div>';}
 /* =====================================================================
    6. ÉCRANS
@@ -841,10 +853,12 @@ function renderHome(){
       '<button type="button" class="tile" data-go="difficiles" style="--c:var(--p-rose)"'+(diff?'':' disabled')+'><span class="ico">'+ICONS.etoile+'</span><span class="name">Mes questions difficiles</span><span class="desc">'+(diff?(diff===1?'1 question à revoir.':diff+' questions à revoir.'):'Rien à revoir pour le moment.')+'</span></button>'+
     '</div>'+
     '<div class="actions inline"><button type="button" class="btn" id="helpBtn">Comment ça marche ?</button></div>'+
-    '<div class="home-bottom">'+mentions()+'</div>');
+    '<div class="home-bottom"><details class="sources"><summary>Sources</summary><ul></ul></details>'+mentions()+'</div>');
   $$('[data-go]',main).forEach(b=>b.addEventListener('click',()=>{const g=b.dataset.go;
     if(g==='decouvrir')renderDecouvrir();else if(g==='quiz')renderDefi();else if(g==='difficiles')startQuiz(true);else renderProjet(store('fiche')&&store('fiche').fini?7:0);}));
   $('#helpBtn').addEventListener('click',openHelp);
+  /* Liens créés à l'ouverture seulement (fermés, ils n'ont pas de place à l'écran) */
+  const src=$('.sources',main);src.addEventListener('toggle',()=>{$('ul',src).innerHTML=src.open?SOURCES.map(x=>'<li><a href="'+x[1]+'" target="_blank" rel="noopener">'+esc(x[0])+'</a></li>').join(''):'';});
 }
 /* Réglages : style, taille du texte, texte facile. Rangés dans une fenêtre pour garder l'accueil léger. */
 function pilules(cle,label,choix,actuel){return '<div class="sizes"><span class="small-label">'+label+'</span><div class="size-pills">'+
@@ -892,7 +906,7 @@ function renderDecouvrir(depart){
     texte='<span class="rc-num">Partie '+(k+1)+' sur '+n+'</span>'+
       '<h2 class="sc-titre">'+esc(p.titre)+'</h2>'+
       '<div class="sc-lignes'+(texteFacile()?' facile':'')+'">'+L.map(t=>'<p>'+gras(t)+'</p>').join('')+'</div>'+
-      (p.d?'<details class="sc-def"><summary>'+ICONS.lire+'<span>'+esc(p.d[0])+'</span></summary><p>'+esc(p.d[1])+'</p></details>':'')+
+      (p.d?'<details class="sc-def"><summary>'+ICONS.lire+'<span>'+esc(p.d[0])+'</span></summary><p>'+esc(majuscule(p.d[1]))+'</p></details>':'')+
       '<div class="rc-nav">'+(k>0?'<button type="button" class="btn" data-aller="'+(k-1)+'">Précédent</button>':'')+
         '<button type="button" class="btn primary" data-aller="'+(k+1)+'">'+(k<n-1?'Suivant':'J’ai tout lu')+'</button></div>';
   }
@@ -976,7 +990,7 @@ function renderProjet(i){
     corps='<div class="genres">'+GENRES.map(g=>'<button type="button" class="genre" data-genre="'+g[0]+'" aria-pressed="'+(f.genre===g[0])+'"><span class="gico">'+ICONS[g[0]]+'</span><span>'+esc(g[1])+'</span></button>').join('')+'</div>';}
   else if(i===3){dit+=' Touche 3 mots.';
     corps='<p class="small-label" id="compte">'+f.mots.length+' mot'+(f.mots.length>1?'s':'')+' sur 3</p>'+
-      '<div class="size-pills mots">'+MOTS.map(m=>'<button type="button" class="size-pill" data-mot="'+esc(m)+'" aria-pressed="'+(f.mots.indexOf(m)>=0)+'">'+esc(m)+'</button>').join('')+'</div>';}
+      '<div class="size-pills mots">'+MOTS.map(m=>'<button type="button" class="size-pill" data-mot="'+esc(m)+'" aria-pressed="'+(f.mots.indexOf(m)>=0)+'">'+esc(majuscule(m))+'</button>').join('')+'</div>';}
   else if(i===4){dit+=' Complète la phrase. Tu peux toucher une idée.';
     corps=line('lire','Complète la phrase. Tu peux toucher une idée.')+
       '<p class="q-label">Je l’ai choisie parce que…</p>'+
@@ -1017,7 +1031,7 @@ function renderProjet(i){
 function htmlFiche(f){
   const g=GENRES.find(x=>x[0]===f.genre)||GENRES[GENRES.length-1];
   return '<div class="fiche"><div class="fiche-head"><span class="fiche-ico">'+ICONS[g[0]]+'</span><div><p class="small-label">'+esc(f.parc)+' · '+esc(g[1])+'</p><h2 class="fiche-nom">'+esc(f.nom)+'</h2></div></div>'+
-    '<div class="chips">'+f.mots.map(m=>'<span class="chip fiche-mot">'+esc(m)+'</span>').join('')+'</div>'+
+    '<div class="chips">'+f.mots.map(m=>'<span class="chip fiche-mot">'+esc(majuscule(m))+'</span>').join('')+'</div>'+
     '<p class="fiche-txt">Je l’ai choisie parce que '+esc(f.pourquoi.trim().replace(/^./,c=>c.toLowerCase()))+'</p>'+
     (f.plus.trim()?'<p class="fiche-plus">'+esc(f.plus.trim())+'</p>':'')+'</div>';
 }
