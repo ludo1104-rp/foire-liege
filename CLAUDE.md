@@ -10,8 +10,9 @@ pas encore publiée (adresse prévue : https://ludo1104-rp.github.io/foire-liege
   trésor). Les phrases apparaissent l'une après l'autre.
   Texte complet par défaut (`t`), « Texte facile » FALC en option (`l`).
 - Partie 6 = vidéo YouTube « À quoi ressemblait la Foire de Liège autrefois ? »
-  (Qu4tre – Liège Média, Short h2vPRoAUzhQ) : la partie dit quoi y chercher,
-  le texte ne la répète pas. Contenu tiré de sa description (sous-titres bloqués).
+  (Qu4tre – Liège Média, Short h2vPRoAUzhQ), en grand dans la carte de texte
+  (pas dans la scène), + bouton « Ouvrir la vidéo sur YouTube ». Le texte donne
+  les informations (pas de questions dans la lecture).
 - **Je comprends** : écran « Je choisis mon défi », puis 36 questions (q1…q36,
   q31-36 sur la vidéo, c:1 = seulement en texte complet). « Mes questions difficiles ».
 - **Je présente** : fiche guidée en 7 étapes, « Montrer en grand » pour le TVI.
@@ -23,7 +24,10 @@ pas encore publiée (adresse prévue : https://ludo1104-rp.github.io/foire-liege
 - `q.p` = numéro de l'identifiant de la partie (p10 = la vidéo), pas sa position.
 - Dates : départ de La Batte en 1854 (Wikipédia), installation définitive
   en 1865 (vidéo). 2026 : plus de 160 attractions (vidéo).
-- La vidéo demande Internet ; elle ne se lance pas depuis un fichier local.
+- La vidéo demande Internet. Ouverte comme fichier (file://), YouTube refuse
+  (erreur 153) : l'appli montre alors seulement le bouton YouTube. Tester via
+  `python3 -m http.server`.
+- Coches et croix = SVG (`COCHE`, `CROIX`), jamais « ✓ » (ressemble à un « v »).
 - Clé de stockage `foire-liege` : ne plus la changer.
 
 ## Prochaine étape

@@ -116,8 +116,12 @@ h1{font-size:clamp(30px,5vw,40px);line-height:1.15;letter-spacing:-.015em}
 .choice.ok{background:var(--ok-bg);border-color:var(--ok);color:var(--ink)}
 .choice.ko{background:var(--bad-bg);border-color:var(--bad);color:var(--ink)}
 .choice.ok::after,.choice.ko::after{position:absolute;right:18px;top:50%;transform:translateY(-50%);font-size:24px}
-.choice.ok::after{content:"✓";color:var(--ok)}
-.choice.ko::after{content:"✗";color:var(--bad)}
+.choice.ok::after{content:"";width:26px;height:26px;background:var(--ok);-webkit-mask:var(--coche) center/contain no-repeat;mask:var(--coche) center/contain no-repeat}
+:root{--coche:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
+.coche{width:1.1em;height:1.1em;vertical-align:-.18em}
+.sheet-ico svg{width:30px;height:30px}
+.choice.ko::after{content:"";width:26px;height:26px;background:var(--bad);-webkit-mask:var(--croix) center/contain no-repeat;mask:var(--croix) center/contain no-repeat}
+:root{--croix:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 6l12 12M18 6L6 18' fill='none' stroke='black' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E")}
 .choice.dim{opacity:.45}
 .choice.pop{animation:pop .3s}
 .choice.shake{animation:shake .3s}
@@ -250,10 +254,14 @@ body.simple .streak{background:var(--surface);color:var(--ink)}
 .sc-svg.on{opacity:1;visibility:visible;transition:opacity .35s;pointer-events:auto}
 /* tests automatiques : pas de fondu, pour mesurer le contraste final */
 body.sans-fondu .sc-svg,body.sans-fondu .sc-lignes p{transition:none}
-.sc-video{background:var(--p-gris);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:10px}
-.vcadre{height:calc(100% - 30px);aspect-ratio:9/16;border-radius:16px;overflow:hidden;background:#1F2933}
+.sc-step.sc-avideo{min-height:0;padding-bottom:40px}
+.sc-step.sc-avideo .sc-card{position:relative;top:auto}
+.vbloc{display:flex;flex-direction:column;align-items:center;gap:10px}
+.vbloc .btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:var(--ink);white-space:nowrap}
+.vbloc .btn svg{width:22px;height:22px;flex:none}
+.vcadre{height:var(--vh,560px);max-width:100%;aspect-ratio:9/16;border-radius:20px;overflow:hidden;background:#1F2933}
 .vcadre iframe{width:100%;height:100%;border:0;display:block}
-.vsource{font-size:14px;color:#3F4A55}
+.vsource{font-size:15px;color:#3F4A55}
 .sc-steps{display:flex;flex-direction:column;padding-bottom:var(--scfin,200px)}
 .sc-step{min-height:var(--scstep,900px);position:relative}
 .sc-step.sc-fin{min-height:0}
@@ -317,7 +325,7 @@ body.simple .fiche-mot{background:var(--surface)}
   <main id="main"></main>
   <div id="sheet" class="sheet" role="status" aria-live="polite">
     <div class="sheet-in">
-      <div class="sheet-msg"><span class="sheet-ico" aria-hidden="true">✓</span><div><p class="sheet-title"></p><p class="sheet-sub"></p></div></div>
+      <div class="sheet-msg"><span class="sheet-ico" aria-hidden="true"></span><div><p class="sheet-title"></p><p class="sheet-sub"></p></div></div>
       <button type="button" class="sheet-btn" id="sheetBtn">Continuer</button>
     </div>
   </div>
@@ -374,9 +382,9 @@ const PARTIES=[
     l:['Au début, la foire est sur **La Batte**.','La Batte est un quai au bord de la **Meuse**.','En 1854, la foire part sur le boulevard d’Avroy.','Avant, la foire commençait en novembre.','Depuis 1871, elle commence en octobre.'],
     d:['Un quai','une rue au bord de l’eau, où les bateaux s’arrêtent.']},
   {id:'p10',titre:'La foire d’autrefois (vidéo)',sc:'video',c:'--p-gris',video:'h2vPRoAUzhQ',source:'Qu4tre – Liège Média, 2026',
-    t:['Cette courte vidéo de Qu4tre – Liège Média montre la foire d’autrefois.','Regarde-la et cherche les réponses :','1. Avant les manèges, qui attirait les visiteurs ?','2. En quelle année la foire s’installe-t-elle pour de bon sur les boulevards ?','3. Quel manège est là depuis 1969 ?'],
-    l:['Regarde la vidéo.','Cherche les réponses :','1. Avant les manèges, qui attirait les visiteurs ?','2. En quelle année la foire reste pour de bon sur les boulevards ?','3. Quel manège est là depuis 1969 ?'],
-    d:['Une curiosité','une chose étonnante que l’on vient voir.']},
+    t:['Cette courte vidéo de Qu4tre – Liège Média montre la foire d’autrefois.','Avant les manèges, des **musiciens**, des **jongleurs** et des **montreurs d’animaux** attiraient les visiteurs. Il y avait aussi des **marionnettes**.','Ensuite, les attractions à **vapeur** sont arrivées.','En **1865**, la foire s’installe pour de bon sur les boulevards.','Le **Rotor** est là depuis 1969. En 2026, la foire dure jusqu’au 11 novembre.'],
+    l:['Regarde la vidéo.','Autrefois, il n’y avait pas de manèges.','Il y avait des **musiciens**, des **jongleurs** et des **marionnettes**.','Ensuite, les manèges à **vapeur** sont arrivés.','En **1865**, la foire reste pour de bon sur les boulevards.','Le **Rotor** est là depuis 1969.'],
+    d:['La vapeur','de l’eau chauffée très fort. Autrefois, elle faisait tourner les machines et les manèges.']},
   {id:'p6',titre:'Les attractions et les forains',sc:'attractions',c:'--p-blue',
     t:['En 2026, la foire compte plus de **160** attractions.','Il y a des manèges à sensations qui montent très haut et tournent très vite, des manèges pour les petits, des autos tamponneuses, des jeux d’adresse et des loteries.','Les **forains** font vivre ces attractions. Beaucoup voyagent de ville en ville toute l’année avec leur manège. C’est souvent un métier de famille.'],
     l:['Il y a plus de **160** attractions.','Il y a des manèges qui font peur.','Il y a aussi des manèges pour les petits.','Les **forains** font marcher les attractions.'],
@@ -462,6 +470,8 @@ const ETAPES=[
 
 /* 3. ILLUSTRATIONS FLAT (SVG) */
 function svg(body,vb){return '<svg viewBox="'+(vb||'0 0 64 64')+'" aria-hidden="true">'+body+'</svg>';}
+const COCHE='<svg class="coche" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+const CROIX='<svg class="coche" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 const ICONS={
   lire:svg('<rect x="14" y="8" width="36" height="48" rx="7" fill="#85B7EB"/><rect x="20" y="17" width="24" height="4" rx="2" fill="#E6F1FB"/><rect x="20" y="26" width="24" height="4" rx="2" fill="#E6F1FB"/><rect x="20" y="35" width="16" height="4" rx="2" fill="#E6F1FB"/>'),
   ecouter:svg('<path d="M10 25h9l13-11v36L19 39h-9z" fill="#D85A30"/><path d="M39 24c4 4.5 4 11.5 0 16M45 18c7.5 7.6 7.5 20.4 0 28" stroke="#F0997B" stroke-width="4" fill="none" stroke-linecap="round"/>'),
@@ -732,7 +742,7 @@ function header(o){o=o||{};
 function view(html){hideSheet();main.innerHTML='<div class="wrap enter">'+html+'</div>';main.scrollTop=0;layout();}
 function line(ic,txt){return '<div class="sline"><span class="ic">'+(ICONS[ic]||'')+'</span><span>'+esc(txt)+'</span></div>';}
 function showSheet(ok,titre,sous,action){
-  sheet.classList.toggle('bad',!ok);$('.sheet-ico',sheet).textContent=ok?'✓':'✗';
+  sheet.classList.toggle('bad',!ok);$('.sheet-ico',sheet).innerHTML=ok?COCHE:CROIX;
   $('.sheet-title',sheet).textContent=titre;$('.sheet-sub',sheet).textContent=sous||'';
   S.sheetAction=action;sheet.classList.add('show');document.body.classList.add('sheet-open');setTimeout(()=>$('#sheetBtn').focus(),300);}
 function hideSheet(){sheet.classList.remove('show');document.body.classList.remove('sheet-open');}
@@ -830,9 +840,9 @@ function renderHome(){
     '<p class="lead">'+esc(APP.sousTitre)+'</p>'+
     '<div class="slines">'+ACCUEIL_LIGNES.map(l=>line(l[0],l[1])).join('')+'</div>'+
     '<div class="tiles">'+
-      '<button type="button" class="tile" data-go="decouvrir" style="--c:var(--p-yellow)"><span class="ico">'+ICONS.lire+'</span><span class="name">1. Je découvre</span><span class="desc">'+(lu>=PARTIES.length?'Tout lu ✓':'L’histoire en '+PARTIES.length+' parties animées.')+'</span></button>'+
+      '<button type="button" class="tile" data-go="decouvrir" style="--c:var(--p-yellow)"><span class="ico">'+ICONS.lire+'</span><span class="name">1. Je découvre</span><span class="desc">'+(lu>=PARTIES.length?'Tout lu '+COCHE:'L’histoire en '+PARTIES.length+' parties animées.')+'</span></button>'+
       '<button type="button" class="tile" data-go="quiz" style="--c:var(--p-lav)"><span class="ico">'+ICONS.doigt+'</span><span class="name">2. Je comprends</span><span class="desc">Réponds aux questions.</span></button>'+
-      '<button type="button" class="tile" data-go="projet" style="--c:var(--p-mint)"><span class="ico">'+ICONS.micro+'</span><span class="name">3. Je présente</span><span class="desc">'+(fiche&&fiche.fini?'Ma fiche est prête ✓':'Présente une attraction.')+'</span></button>'+
+      '<button type="button" class="tile" data-go="projet" style="--c:var(--p-mint)"><span class="ico">'+ICONS.micro+'</span><span class="name">3. Je présente</span><span class="desc">'+(fiche&&fiche.fini?'Ma fiche est prête '+COCHE:'Présente une attraction.')+'</span></button>'+
       '<button type="button" class="tile" data-go="difficiles" style="--c:var(--p-rose)"'+(diff?'':' disabled')+'><span class="ico">'+ICONS.etoile+'</span><span class="name">Mes questions difficiles</span><span class="desc">'+(diff?(diff===1?'1 question à revoir.':diff+' questions à revoir.'):'Rien à revoir pour le moment.')+'</span></button>'+
     '</div>'+
     '<div class="actions inline"><button type="button" class="btn" id="helpBtn">Comment ça marche ?</button></div>'+
@@ -859,13 +869,14 @@ function renderDecouvrir(depart){
   view('<div class="sizes sc-mode"><span class="small-label">Texte</span><div class="size-pills">'+[['complet','Texte complet'],['facile','Texte facile']].map(m=>'<button type="button" class="size-pill" data-texte="'+m[0]+'" aria-pressed="'+((texteFacile()?'facile':'complet')===m[0])+'">'+m[1]+'</button>').join('')+'</div></div>'+
     '<div class="scrolly">'+
       '<div class="sc-visu"><div class="scene" id="scene">'+PARTIES.map((p,k)=>p.video?
-        '<div class="sc-svg sc-video" data-k="'+k+'"><div class="vcadre"><iframe data-src="https://www.youtube-nocookie.com/embed/'+p.video+'?playsinline=1&rel=0&enablejsapi=1" title="'+esc(p.titre)+'" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div><p class="vsource">Vidéo : '+esc(p.source)+'. Il faut Internet.</p></div>':
+        '<svg class="sc-svg" data-k="'+k+'" viewBox="0 0 400 300" aria-hidden="true"><rect x="110" y="40" width="180" height="200" rx="22" fill="#1F2933"/><circle cx="200" cy="140" r="42" fill="#fff"/><path d="M188 118 L222 140 L188 162 Z" fill="#1F2933"/><path d="M200 262 l-14 -14 h28 Z" fill="#1F2933"/></svg>':
         '<svg class="sc-svg" data-k="'+k+'" viewBox="0 0 400 300" aria-hidden="true">'+SCENES[p.sc].html()+'</svg>').join('')+
         '<svg class="sc-svg" data-k="'+PARTIES.length+'" viewBox="0 0 400 300" aria-hidden="true"><g transform="translate(110 40) scale(2.8)">'+ICONS.trophee.replace(/^<svg[^>]*>|<\/svg>$/g,'')+'</g></svg></div></div>'+
       '<div class="sc-steps">'+PARTIES.map((p,k)=>{const L=lignes(p);
-        return '<section class="sc-step" data-k="'+k+'"><div class="def-card sc-card">'+
+        return '<section class="sc-step'+(p.video?' sc-avideo':'')+'" data-k="'+k+'"><div class="def-card sc-card">'+
           '<span class="badge">Partie '+(k+1)+' sur '+PARTIES.length+'</span>'+
           '<h2 class="sc-titre">'+esc(p.titre)+'</h2>'+
+          (p.video?'<div class="vbloc">'+(location.protocol==='file:'?'':'<div class="vcadre"><iframe data-src="https://www.youtube-nocookie.com/embed/'+p.video+'?playsinline=1&rel=0&enablejsapi=1" title="'+esc(p.titre)+'" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>')+'<a class="btn'+(location.protocol==='file:'?' primary':'')+'" href="https://www.youtube.com/shorts/'+p.video+'" target="_blank" rel="noopener">Ouvrir la vidéo sur YouTube</a><p class="vsource">Vidéo : '+esc(p.source)+'. Il faut Internet.</p></div>':'')+
           '<div class="sc-lignes'+(texteFacile()?' facile':'')+'">'+L.map((t,i)=>'<p data-i="'+i+'" data-n="'+L.length+'">'+gras(t)+'</p>').join('')+'</div>'+
           (p.d?'<div class="tip sc-def">'+ICONS.lire+'<span><b class="cle">'+esc(p.d[0])+'</b> : '+esc(p.d[1])+'</span></div>':'')+
           '<button type="button" class="btn sc-next" data-next="'+(k+1)+'">'+(k<PARTIES.length-1?ICONS.fleche+' Partie suivante':'J’ai tout lu')+'</button>'+
@@ -906,7 +917,7 @@ function scrollyMaj(){
   S.scrolly.i=k;S.scrolly.t=t;
   if(change){
     /* vidéo : chargée quand on arrive sur sa partie, mise en pause quand on la quitte */
-    $$('.sc-video iframe',main).forEach(f=>{const ici=f.closest('.sc-svg').dataset.k==String(k);
+    $$('.vcadre iframe',main).forEach(f=>{const ici=f.closest('.sc-step').dataset.k==String(k);
       if(ici&&!f.src)f.src=f.dataset.src;
       else if(!ici&&f.src)try{f.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}','*');}catch(e){}});
     steps.forEach((s,j)=>s.classList.toggle('on',j===k));
@@ -1090,6 +1101,8 @@ function layout(){
     r.setProperty('--sctop',(portrait?visu.offsetHeight:12)+'px');
     r.setProperty('--scstep',Math.round(mh*1.2)+'px');
     r.setProperty('--scfin',Math.round(mh*.25)+'px');
+    /* vidéo : la plus grande possible sous la scène (portrait) ou dans la colonne (paysage) */
+    r.setProperty('--vh',Math.round(Math.max(320,portrait?mh-visu.offsetHeight-200:mh*.72))+'px');
     if(S.scrolly){S.scrolly.i=-1;scrollyMaj();}
   }
 }
